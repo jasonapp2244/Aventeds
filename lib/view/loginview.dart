@@ -7,6 +7,7 @@ import 'package:provide/res/components/auth_button.dart';
 import 'package:provide/utils/routes/responsive.dart';
 import 'package:provide/utils/routes/routes_name.dart';
 import 'package:provide/utils/routes/utils.dart';
+import 'package:provide/view/role_selector.dart';
 import 'package:provide/viewmodel/auth_viewmodel.dart';
 import 'package:provider/provider.dart';
 
@@ -238,9 +239,11 @@ class _LoginviewState extends State<Loginview> {
                         // context,
                       );
                     } else {
-                      Navigator.pushReplacementNamed(
+                      Navigator.pushReplacement(
                         context,
-                        RoutesName.roleselector,
+                        MaterialPageRoute(
+                          builder: (_) => RoleSelectionScreen(),
+                        ),
                       );
                       // Map<String, String> headr = {
                       //   "x-api-key": "reqres-free-v1",

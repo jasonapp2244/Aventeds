@@ -42,7 +42,8 @@ class _SplashViewState extends State<SplashView> {
         child: Center(
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
-            children: [ SizedBox(height: screenHeight * 0.2),
+            children: [
+              SizedBox(height: screenHeight * 0.2),
               SizedBox(
                 width: iconSize,
                 height: iconSize,
@@ -50,16 +51,16 @@ class _SplashViewState extends State<SplashView> {
                   "assets/images/splash.svg",
                   fit: BoxFit.contain,
                 ),
-              ),Spacer(),
+              ),
+              Spacer(),
               SizedBox(
                 width: double.infinity,
-                height: screenHeight*0.4,
+                height: screenHeight * 0.4,
                 child: SvgPicture.asset(
                   "assets/images/Vector.svg",
                   fit: BoxFit.fitWidth,
                 ),
               ),
-             
             ],
           ),
         ),

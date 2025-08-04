@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provide/res/components/app_color.dart';
 import 'package:provide/res/components/auth_button.dart';
 import 'package:provide/utils/routes/responsive.dart';
-import 'package:provide/view/homeview.dart';
+import 'package:provide/view/event_screen/home_screen_view.dart';
+import 'package:provide/view/home_screen/homeview.dart';
 
 class RoleSelectionScreen extends StatefulWidget {
   const RoleSelectionScreen({super.key});
@@ -123,7 +124,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                     print('Selected role: $selectedRole');
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => Homeview()),
+                      MaterialPageRoute(builder: (_) => HomeScreenView()),
                     );
                     // Navigator.pushNamed(context, RoutesName.homeview);
                     // };

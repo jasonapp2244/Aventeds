@@ -11,4 +11,8 @@ class RoutesName {
   static const String chooseplan = "chooseplan_view";
   //Home Screen
   static const String roleselector = "roleselector_view";
+  //Main Screen with Bottom Navigation
+  static const String main = "main_screen";
+  //Bottom Navigation Example
+  static const String bottomNavExample = "bottom_nav_example";
 }

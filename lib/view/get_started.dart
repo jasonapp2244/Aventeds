@@ -50,7 +50,7 @@
 //                     fontSize: isPortrait
 //                         ? screenSize.width * 0.035
 //                         : screenSize.height * 0.025,
-//                     color: AppColor.whiteColor,
+//                     color: AppColor.textColor.withValues(alpha: 0.3),
 //                     fontWeight: FontWeight.w400,
 //                   ),
 //                   textAlign: TextAlign.center,
@@ -102,7 +102,7 @@
 //                 _buildActionButton(
 //                   context: context,
 //                   text: 'Log in',
-//                   backgroundColor: AppColor.whiteColor,
+//                   backgroundColor: AppColor.textColor.withValues(alpha: 0.3),
 //                   textColor: Colors.black,
 //                   onTap: () => Get.toNamed(RoutesName.loginScreen),
 //                   padding: buttonPadding,
@@ -141,7 +141,7 @@
 //     return Container(
 //       padding: padding,
 //       decoration: BoxDecoration(
-//         color: AppColor.grayColor,
+//         color: AppColor.primaryColor,
 //         border: Border.all(color: Colors.white24, width: 1),
 //         borderRadius: BorderRadius.circular(screenSize.width * 0.03),
 //       ),
@@ -224,7 +224,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.appBodyBG,
+      backgroundColor: AppColor.primaryColor,
       body: Container(
         padding: EdgeInsets.only(top: 0, bottom: 0, left: 25, right: 25),
         child: Column(
@@ -234,7 +234,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
               'Let’s Get Started!',
               style: TextStyle(
                 fontSize: 24,
-                color: AppColor.secondColor,
+                color: AppColor.tertiaryColor,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -243,7 +243,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
               'Lorem Ipsum is simply dummy text',
               style: TextStyle(
                 fontSize: 12,
-                color: AppColor.whiteColor,
+                color: AppColor.textColor,
                 fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.center,
@@ -268,7 +268,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
             //         'Continue with facebook',
             //         style: TextStyle(
             //           fontSize: 16,
-            //           color: AppColor.whiteColor,
+            //           color: AppColor.textColor.withValues(alpha: 0.3),
             //           fontWeight: FontWeight.w400,
             //         ),
             //       ),
@@ -279,7 +279,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
             Container(
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               decoration: BoxDecoration(
-                color: AppColor.grayColor,
+                color: AppColor.primaryColor,
                 border: Border.all(color: Colors.white24, width: 1),
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -298,7 +298,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
                     'Continue with google',
                     style: TextStyle(
                       fontSize: 16,
-                      color: AppColor.whiteColor,
+                      color: AppColor.textColor.withValues(alpha: 0.3),
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -306,10 +306,10 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
               ),
             ),
             SizedBox(height: 10),
-             Container(
+            Container(
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               decoration: BoxDecoration(
-                color: AppColor.grayColor,
+                color: AppColor.primaryColor,
                 border: Border.all(color: Colors.white24, width: 1),
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -325,7 +325,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
                     'Continue with apple',
                     style: TextStyle(
                       fontSize: 16,
-                      color: AppColor.whiteColor,
+                      color: AppColor.textColor.withValues(alpha: 0.3),
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -336,7 +336,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
             Container(
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               decoration: BoxDecoration(
-                color: AppColor.grayColor,
+                color: AppColor.primaryColor,
                 border: Border.all(color: Colors.white24, width: 1),
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -352,7 +352,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
                     'Continue with facebook',
                     style: TextStyle(
                       fontSize: 16,
-                      color: AppColor.whiteColor,
+                      color: AppColor.textColor.withValues(alpha: 0.3),
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -363,7 +363,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
             Container(
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               decoration: BoxDecoration(
-                color: AppColor.grayColor,
+                color: AppColor.primaryColor,
                 border: Border.all(color: Colors.white24, width: 1),
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -379,7 +379,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
                     'Continue with twitter',
                     style: TextStyle(
                       fontSize: 16,
-                      color: AppColor.whiteColor,
+                      color: AppColor.textColor.withValues(alpha: 0.3),
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -388,23 +388,23 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
             ),
 
             SizedBox(height: 40),
-            Button(
-              color: AppColor.primeColor,
-              title: "Sign Up",
-              textColor: AppColor.whiteColor,
-              onTap: () {
-                Get.toNamed(RoutesName.registerScreen);
-              },
-            ),
-            SizedBox(height: 10),
-            Button(
-              color: AppColor.whiteColor,
-              title: "Log In",
-              textColor: AppColor.blackColor,
-              onTap: () {
-                Get.toNamed(RoutesName.loginScreen);
-              },
-            ),
+            // Button(
+            //   color: AppColor.primeColor,
+            //   title: "Sign Up",
+            //   textColor: AppColor.textColor.withValues(alpha: 0.3),
+            //   onTap: () {
+            //     Get.toNamed(RoutesName.registerScreen);
+            //   },
+            // ),
+            // SizedBox(height: 10),
+            // Button(
+            //   color: AppColor.textColor.withValues(alpha: 0.3),
+            //   title: "Log In",
+            //   textColor: AppColor.blackColor,
+            //   onTap: () {
+            //     Get.toNamed(RoutesName.loginScreen);
+            //   },
+            // ),
             // InkWell(
             //   onTap: () {
             //     Get.toNamed(RoutesName.loginScreen);
@@ -412,7 +412,7 @@ class _GetStartedSecreenState extends State<GetStartedSecreen> {
             //   child: Container(
             //     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
             //     decoration: BoxDecoration(
-            //       color: AppColor.whiteColor,
+            //       color: AppColor.textColor.withValues(alpha: 0.3),
             //       borderRadius: BorderRadius.circular(10),
             //     ),
             //     alignment: Alignment.center,
