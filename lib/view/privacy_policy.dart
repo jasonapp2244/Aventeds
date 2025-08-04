@@ -113,7 +113,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               child: Container(
                 // height: MediaQuery.sizeOf(context).height * 0.7,
                 width: MediaQuery.sizeOf(context).width * 1,
-                decoration: BoxDecoration(color: AppColor.textColor),
+                decoration: BoxDecoration(color: AppColor.primaryColor),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,

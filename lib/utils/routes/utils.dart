@@ -55,6 +55,29 @@ class Utils {
       )..show(context),
     );
   }
+
+   static void flushBarSuccessMassage(String message, BuildContext context) {
+    showFlushbar(
+      context: context,
+      flushbar: Flushbar(
+        forwardAnimationCurve: Curves.decelerate,
+        reverseAnimationCurve: Curves.easeInOut,
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.all(15),
+        //backgroudColors
+        message: message,
+        borderRadius: BorderRadius.circular(20),
+        backgroundColor: AppColor.tertiaryColor,
+        title: "Error",
+        titleColor: AppColor.textColor,
+        messageColor: AppColor.textColor,
+        positionOffset: 20,
+        flushbarPosition: FlushbarPosition.BOTTOM,
+        icon: Icon(Icons.error, size: 28, color: Colors.white),
+        duration: Duration(seconds: 3),
+      )..show(context),
+    );
+  }
 }
 
 snakBar(String massage, BuildContext context) {

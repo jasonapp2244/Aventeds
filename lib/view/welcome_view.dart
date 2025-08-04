@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provide/res/components/app_color.dart';
 import 'package:provide/res/components/auth_button.dart';
 import 'package:provide/utils/routes/responsive.dart';
+import 'package:provide/view/get_started.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -31,7 +32,16 @@ class WelcomeView extends StatelessWidget {
             ),
             SizedBox(height: Responsive.h(6)),
 
-            AuthButton(buttontext: "Welcome", loading: false, onPress: () {}),
+            AuthButton(
+              buttontext: "Welcome",
+              loading: false,
+              onPress: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => GetStartedSecreen()),
+                );
+              },
+            ),
           ],
         ),
       ),

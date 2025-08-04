@@ -18,7 +18,7 @@ class Routes {
         );
       case RoutesName.signup:
         return MaterialPageRoute(
-          builder: (BuildContext context) => Sginupview(),
+          builder: (BuildContext context) => SginupView(),
         );
       case RoutesName.splash:
         return MaterialPageRoute(

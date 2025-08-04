@@ -34,8 +34,8 @@ class AuthButton extends StatelessWidget {
                     : Text(
                       buttontext.toString(),
                       style: GoogleFonts.dmSans(
-                        color: AppColor.textColor,
-                        fontWeight: FontWeight.bold,
+                        color: AppColor.primaryColor,
+                        fontWeight: FontWeight.normal,
                         fontSize: 16,
                       ),
                     ),
