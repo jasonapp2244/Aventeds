@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provide/res/components/app_color.dart';
+import 'package:aventeds/res/components/app_color.dart';
 import 'package:video_player/video_player.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,19 +20,34 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((_) {
-        setState(() {});
-      });
+    // Check if videoUrl is valid before initializing
+    if (widget.videoUrl.isNotEmpty && Uri.tryParse(widget.videoUrl) != null) {
+      _controller = VideoPlayerController.network(widget.videoUrl)
+        ..initialize()
+            .then((_) {
+              setState(() {});
+            })
+            .catchError((error) {
+              // Handle video loading errors
+              print('Video loading error: $error');
+              setState(() {});
+            });
+    }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    if (widget.videoUrl.isNotEmpty && Uri.tryParse(widget.videoUrl) != null) {
+      _controller.dispose();
+    }
     super.dispose();
   }
 
   void _togglePlayPause() {
+    if (widget.videoUrl.isEmpty || Uri.tryParse(widget.videoUrl) == null) {
+      return; // Do nothing if no valid video URL
+    }
+
     setState(() {
       if (_controller.value.isPlaying) {
         _controller.pause();
@@ -57,7 +72,6 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
               .cover, // This makes the image fill and crop to fit the container
         ),
 
-        borderRadius: BorderRadius.circular(12),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -68,32 +82,52 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: _controller.value.isInitialized
-                ? AspectRatio(
-                    aspectRatio: _controller.value.aspectRatio,
-                    child: VideoPlayer(_controller),
-                  )
-                : // Centered overlay (text + custom button)
-                  Center(
+            child:
+                (widget.videoUrl.isNotEmpty &&
+                    Uri.tryParse(widget.videoUrl) != null)
+                ? (_controller.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _controller.value.aspectRatio,
+                          child: VideoPlayer(_controller),
+                        )
+                      : Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              GestureDetector(
+                                onTap: _togglePlayPause,
+                                child: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xCCECAD00).withOpacity(0.8),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    _isPlaying ? Icons.pause : Icons.play_arrow,
+                                    color: AppColor.textColor,
+                                    size: 24,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ))
+                : Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GestureDetector(
-                          onTap: _togglePlayPause,
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Color(0xCCECAD00).withOpacity(0.8),
-                              shape: BoxShape.circle,
-
-                              // Yellow
-                            ),
-                            child: Icon(
-                              _isPlaying ? Icons.pause : Icons.play_arrow,
-                              color: AppColor.textColor,
-                              size: 24,
-                            ),
+                        Icon(
+                          Icons.videocam_off,
+                          color: AppColor.textColor,
+                          size: 40,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'No video available',
+                          style: TextStyle(
+                            color: AppColor.textColor,
+                            fontSize: 14,
                           ),
                         ),
                       ],

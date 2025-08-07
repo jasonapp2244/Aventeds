@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/utils/routes/responsive.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String? profileImagePath;
@@ -61,7 +61,7 @@ class CustomAppBar extends StatelessWidget {
                   ),
                   badgeStyle: badges.BadgeStyle(
                     badgeColor: Colors.red,
-                    padding: EdgeInsets.all(4),
+                    padding: EdgeInsets.all(2),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: SvgPicture.asset('assets/icons/notification.svg'),

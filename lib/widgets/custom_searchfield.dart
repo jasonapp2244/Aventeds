@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
+import 'package:aventeds/res/components/app_color.dart';
 
 class CustomSearchField extends StatelessWidget {
   final TextEditingController controller;
@@ -29,8 +29,8 @@ class CustomSearchField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(16),
+        color: Color(0xff1E1E1E),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
         children: [
@@ -44,7 +44,8 @@ class CustomSearchField extends StatelessWidget {
               style: GoogleFonts.poppins(color: textColor, fontSize: 14),
               cursorColor: textColor,
               decoration: InputDecoration(
-                iconColor: Color(0xffA7A7A7),
+                filled: true,
+                iconColor: Color(0xff171A1F),
                 fillColor: Color(0xff1E1E1E),
 
                 hintText: hintText,

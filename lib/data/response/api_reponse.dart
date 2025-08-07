@@ -1,4 +1,4 @@
-import 'package:provide/data/response/status.dart';
+import 'package:aventeds/data/response/status.dart';
 
 class ApiReponse<T> {
   Status? status;

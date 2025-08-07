@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/res/components/custom_app_bar.dart';
-import 'package:provide/utils/routes/responsive.dart';
-import 'package:provide/widgets/custom_bottom_navigation.dart';
-import 'package:provide/widgets/custom_searchfield.dart';
-import 'package:provide/widgets/custom_selectable.dart';
-import 'package:provide/widgets/custom_video_player.dart';
-import 'package:provide/widgets/custom_event_card.dart';
-import 'package:provide/widgets/custom_upcoming_event_card.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/res/components/custom_app_bar.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
+import 'package:aventeds/widgets/custom_bottom_navigation.dart';
+import 'package:aventeds/widgets/custom_searchfield.dart';
+import 'package:aventeds/widgets/custom_selectable.dart';
+import 'package:aventeds/widgets/custom_video_player.dart';
+import 'package:aventeds/widgets/custom_event_card.dart';
+import 'package:aventeds/widgets/custom_upcoming_event_card.dart';
 
 class HomeScreenView extends StatefulWidget {
   HomeScreenView({super.key});
@@ -20,6 +20,7 @@ class HomeScreenView extends StatefulWidget {
 
 class _HomeScreenViewState extends State<HomeScreenView> {
   int _currentIndex = 0;
+  String _selectedTab = 'Greetings'; // Default selected tab
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
             child: Column(
               children: [
                 // Top Section with Profile, Notifications, and Menu
@@ -59,7 +60,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
 
                 // Navigation Tabs
                 _buildNavigationTabs(),
-                SizedBox(height: Responsive.h(4)),
+                SizedBox(height: Responsive.h(2)),
 
                 // Events Section
                 _buildEventsSection(),
@@ -146,7 +147,10 @@ class _HomeScreenViewState extends State<HomeScreenView> {
   }
 
   Widget _buildVideoPlayer() {
-    return CustomVideoPlayer(videoUrl: '');
+    return CustomVideoPlayer(
+      videoUrl:
+          'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+    );
   }
 
   Widget _buildSearchBar() {
@@ -156,41 +160,74 @@ class _HomeScreenViewState extends State<HomeScreenView> {
   Widget _buildNavigationTabs() {
     return Row(
       children: [
-        Expanded(child: _buildTab('Agenda', false)),
+        Expanded(child: _buildTab('Agenda')),
         SizedBox(width: Responsive.w(2)),
-        Expanded(child: _buildTab('Greetings', true)),
+        Expanded(child: _buildTab('Greetings')),
         SizedBox(width: Responsive.w(2)),
-        Expanded(child: _buildTab('Feedback', false)),
+        Expanded(child: _buildTab('Feedback')),
         SizedBox(width: Responsive.w(2)),
-        Expanded(child: _buildTab('FAQs', false)),
+        Expanded(child: _buildTab('FAQs')),
       ],
     );
   }
 
-  Widget _buildTab(String title, bool isSelected) {
-    return CustomSelectableTag(title: title, isSelected: isSelected);
+  Widget _buildTab(String title) {
+    return CustomSelectableTag(
+      title: title,
+      isSelected: _selectedTab == title,
+      onTap: () {
+        setState(() {
+          _selectedTab = title;
+        });
+        // Handle tab selection logic here
+        print('Selected tab: $title');
+      },
+    );
   }
 
   Widget _buildEventsSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'You have 4 Events today',
-          style: GoogleFonts.poppins(
-            color: AppColor.tertiaryColor,
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: 'You have ',
+                style: GoogleFonts.poppins(
+                  color: AppColor.tertiaryColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              TextSpan(
+                text: '4',
+                style: GoogleFonts.poppins(
+                  color: Colors.yellow, // Make 4 yellow
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              TextSpan(
+                text: ' Events today',
+                style: GoogleFonts.poppins(
+                  color: AppColor.tertiaryColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ),
+
         SizedBox(height: Responsive.h(2)),
         SizedBox(
-          height: Responsive.h(20),
+          height: Responsive.h(27),
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
               CustomEventCard(
-                title: 'Leadership Summit',
+                title: 'Leadership\nSummit',
                 date: 'Wed, 08 Mar',
                 imagePath: 'assets/images/keynote.png',
                 speakerImagePaths: [
@@ -204,7 +241,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               ),
               SizedBox(width: Responsive.w(3)),
               CustomEventCard(
-                title: 'Keynote Session',
+                title: 'Keynote\nSession',
                 date: 'Wed, 08 Mar',
                 imagePath: 'assets/images/leadership.png',
                 speakerImagePaths: [
@@ -218,7 +255,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               ),
               SizedBox(width: Responsive.w(3)),
               CustomEventCard(
-                title: 'Lead Sum',
+                title: 'Lead\n Summit',
                 date: 'Wed, 08 Mar',
                 imagePath: 'assets/images/leadershp_summit.png',
                 speakerImagePaths: [

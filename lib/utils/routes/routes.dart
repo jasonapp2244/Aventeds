@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provide/utils/routes/routes_name.dart';
-import 'package:provide/view/home_screen/homeview.dart';
-import 'package:provide/view/loginview.dart';
-import 'package:provide/view/role_selector.dart';
-import 'package:provide/view/sginupview.dart';
-import 'package:provide/view/splashview.dart';
-import 'package:provide/view/event_screen/home_screen_view.dart';
-import 'package:provide/view/main_screen.dart';
+import 'package:aventeds/utils/routes/routes_name.dart';
+import 'package:aventeds/view/home_screen/homeview.dart';
+import 'package:aventeds/view/loginview.dart';
+import 'package:aventeds/view/role_selector.dart';
+import 'package:aventeds/view/sginupview.dart';
+import 'package:aventeds/view/splashview.dart';
+import 'package:aventeds/view/event_screen/home_screen_view.dart';
+import 'package:aventeds/view/main_screen.dart';
 
 class Routes {
   static Route<dynamic> generateRoutes(RouteSettings setting) {
@@ -22,7 +22,7 @@ class Routes {
         );
       case RoutesName.signup:
         return MaterialPageRoute(
-          builder: (BuildContext context) => Sginupview(),
+          builder: (BuildContext context) => SginupView(),
         );
       case RoutesName.splash:
         return MaterialPageRoute(

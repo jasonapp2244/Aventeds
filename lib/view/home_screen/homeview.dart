@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provide/utils/routes/routes_name.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/widgets/custom_bottom_navigation.dart';
+import 'package:aventeds/utils/routes/routes_name.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/widgets/custom_bottom_navigation.dart';
 
 class Homeview extends StatefulWidget {
   const Homeview({super.key});
@@ -32,10 +32,7 @@ class _HomeviewState extends State<Homeview> {
             SizedBox(height: 10),
             Text(
               "Current Tab: $_currentIndex",
-              style: TextStyle(
-                color: AppColor.textColor,
-                fontSize: 16,
-              ),
+              style: TextStyle(color: AppColor.textColor, fontSize: 16),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -52,10 +49,7 @@ class _HomeviewState extends State<Homeview> {
               ),
               child: Text(
                 "Go to Main Screen",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
             SizedBox(height: 10),
@@ -73,16 +67,12 @@ class _HomeviewState extends State<Homeview> {
               ),
               child: Text(
                 "Test Bottom Navigation",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
           ],
         ),
       ),
-      
     );
   }
 }

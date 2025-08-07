@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/view/loginview.dart';
-import 'package:provide/view/welcome_view.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/view/get_started.dart';
+import 'package:aventeds/view/loginview.dart';
+import 'package:aventeds/view/welcome_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -24,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => WelcomeView()),
+        MaterialPageRoute(builder: (_) =>WelcomeView()),
       );
     });
   }

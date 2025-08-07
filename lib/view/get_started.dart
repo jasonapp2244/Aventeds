@@ -209,9 +209,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/utils/routes/routes_name.dart';
-import 'package:provide/view/privacy_policy.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
+import 'package:aventeds/view/loginview.dart';
+import 'package:aventeds/view/privacy_policy.dart';
+import 'package:aventeds/view/sginupview.dart';
+import 'package:aventeds/widgets/button.dart';
 
 class GetStartedSecreen extends StatefulWidget {
   const GetStartedSecreen({super.key});
@@ -223,225 +226,196 @@ class GetStartedSecreen extends StatefulWidget {
 class _GetStartedSecreenState extends State<GetStartedSecreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.primaryColor,
-      body: Container(
-        padding: EdgeInsets.only(top: 0, bottom: 0, left: 25, right: 25),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Let’s Get Started!',
-              style: TextStyle(
-                fontSize: 24,
-                color: AppColor.tertiaryColor,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              'Lorem Ipsum is simply dummy text',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColor.textColor,
-                fontWeight: FontWeight.w400,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 40),
-            //  Container(
-            //   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-            //   decoration: BoxDecoration(
-            //     color: AppColor.grayColor,
-            //     border: Border.all(color: Colors.white24, width: 1),
-            //     borderRadius: BorderRadius.circular(10),
-            //   ),
-            //   child: Row(
-            //     children: [
-            //       // Image.asset('assets/images/login-icon3.png'),
-            //       SvgPicture.asset(
-            //         'assets/images/google.svg',
-            //         fit: BoxFit.contain,
-            //       ),
-            //       SizedBox(width: 3),
-            //       Text(
-            //         'Continue with facebook',
-            //         style: TextStyle(
-            //           fontSize: 16,
-            //           color: AppColor.textColor.withValues(alpha: 0.3),
-            //           fontWeight: FontWeight.w400,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-              decoration: BoxDecoration(
-                color: AppColor.primaryColor,
-                border: Border.all(color: Colors.white24, width: 1),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  // Image.asset('assets/images/login-icon2.png'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.asset(
-                      'assets/images/devicon_google.svg',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  SizedBox(width: 5),
-                  Text(
-                    'Continue with google',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColor.textColor.withValues(alpha: 0.3),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-              decoration: BoxDecoration(
-                color: AppColor.primaryColor,
-                border: Border.all(color: Colors.white24, width: 1),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  // Image.asset('assets/images/login-icon2.png'),
-                  SvgPicture.asset(
-                    'assets/images/apple.svg',
-                    fit: BoxFit.contain,
-                  ),
-                  SizedBox(width: 5),
-                  Text(
-                    'Continue with apple',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColor.textColor.withValues(alpha: 0.3),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-              decoration: BoxDecoration(
-                color: AppColor.primaryColor,
-                border: Border.all(color: Colors.white24, width: 1),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  // Image.asset('assets/images/login-icon3.png'),
-                  SvgPicture.asset(
-                    'assets/images/facebook.svg',
-                    fit: BoxFit.contain,
-                  ),
-                  SizedBox(width: 3),
-                  Text(
-                    'Continue with facebook',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColor.textColor.withValues(alpha: 0.3),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-              decoration: BoxDecoration(
-                color: AppColor.primaryColor,
-                border: Border.all(color: Colors.white24, width: 1),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  // Image.asset('assets/images/login-icon4.png'),
-                  SvgPicture.asset(
-                    'assets/images/twitter.svg',
-                    fit: BoxFit.contain,
-                  ),
-                  SizedBox(width: 5),
-                  Text(
-                    'Continue with twitter',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColor.textColor.withValues(alpha: 0.3),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: 40),
-            // Button(
-            //   color: AppColor.primeColor,
-            //   title: "Sign Up",
-            //   textColor: AppColor.textColor.withValues(alpha: 0.3),
-            //   onTap: () {
-            //     Get.toNamed(RoutesName.registerScreen);
-            //   },
-            // ),
-            // SizedBox(height: 10),
-            // Button(
-            //   color: AppColor.textColor.withValues(alpha: 0.3),
-            //   title: "Log In",
-            //   textColor: AppColor.blackColor,
-            //   onTap: () {
-            //     Get.toNamed(RoutesName.loginScreen);
-            //   },
-            // ),
-            // InkWell(
-            //   onTap: () {
-            //     Get.toNamed(RoutesName.loginScreen);
-            //   },
-            //   child: Container(
-            //     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-            //     decoration: BoxDecoration(
-            //       color: AppColor.textColor.withValues(alpha: 0.3),
-            //       borderRadius: BorderRadius.circular(10),
-            //     ),
-            //     alignment: Alignment.center,
-            //     child: Text(
-            //       'Log in',
-            //       style: TextStyle(
-            //         fontSize: 16,
-            //         color: Colors.black,
-            //         fontWeight: FontWeight.w400,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            SizedBox(height: 40),
-            InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => PrivacyPolicy()),
-              ),
-              child: Text(
-                'Privacy Policy',
+    Responsive.init(context);
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColor.primaryColor,
+        body: Container(
+          padding: EdgeInsets.only(
+            top: Responsive.h(2),
+            bottom: 0,
+            left: 25,
+            right: 25,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset("assets/images/Layer_1.svg"),
+              Text(
+                'Let’s Get Started!',
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
+                  fontSize: 24,
+                  color: AppColor.tertiaryColor,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Lorem Ipsum is simply dummy text',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: AppColor.textColor,
                   fontWeight: FontWeight.w400,
                 ),
+                textAlign: TextAlign.center,
               ),
-            ),
-          ],
+              SizedBox(height: 40),
+
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                decoration: BoxDecoration(
+                  color: AppColor.primaryColor,
+                  border: Border.all(color: Colors.white24, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(
+                        width: Responsive.w(6),
+                        height: Responsive.w(6),
+                        'assets/icons/devicon_google.svg',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      'Continue with google',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColor.textColor.withValues(alpha: 0.3),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                decoration: BoxDecoration(
+                  color: AppColor.primaryColor,
+                  border: Border.all(color: Colors.white24, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/apple.svg',
+                      fit: BoxFit.contain,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      'Continue with apple',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColor.textColor.withValues(alpha: 0.3),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                decoration: BoxDecoration(
+                  color: AppColor.primaryColor,
+                  border: Border.all(color: Colors.white24, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    // Image.asset('assets/images/login-icon3.png'),
+                    SvgPicture.asset(
+                      'assets/icons/facebook.svg',
+                      fit: BoxFit.contain,
+                    ),
+                    SizedBox(width: 3),
+                    Text(
+                      'Continue with facebook',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColor.textColor.withValues(alpha: 0.3),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                decoration: BoxDecoration(
+                  color: AppColor.primaryColor,
+                  border: Border.all(color: Colors.white24, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    // Image.asset('assets/images/login-icon4.png'),
+                    SvgPicture.asset(
+                      'assets/icons/twitter.svg',
+                      fit: BoxFit.contain,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      'Continue with twitter',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColor.textColor.withValues(alpha: 0.3),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 40),
+              Button(
+                color: AppColor.yellow,
+                title: "Sign Up",
+                textColor: AppColor.primaryColor,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => SginupView()),
+                  );
+                  // Get.toNamed(RoutesName.registerScreen);
+                },
+              ),
+              SizedBox(height: 10),
+              Button(
+                color: AppColor.yellow,
+                title: "Log In",
+                textColor: AppColor.primaryColor,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => Loginview()),
+                  );
+                  // Get.toNamed(RoutesName.loginScreen);
+                },
+              ),
+
+              SizedBox(height: 40),
+              InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => PrivacyPolicy()),
+                ),
+                child: Text(
+                  'Privacy Policy',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

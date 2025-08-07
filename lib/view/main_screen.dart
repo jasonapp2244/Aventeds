@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/view/event_screen/home_screen_view.dart';
-import 'package:provide/widgets/custom_bottom_navigation.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/view/event_screen/home_screen_view.dart';
+import 'package:aventeds/widgets/custom_bottom_navigation.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

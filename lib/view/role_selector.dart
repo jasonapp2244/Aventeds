@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/res/components/auth_button.dart';
-import 'package:provide/utils/routes/responsive.dart';
-import 'package:provide/view/event_screen/home_screen_view.dart';
-import 'package:provide/view/home_screen/homeview.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/res/components/auth_button.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
+import 'package:aventeds/view/event_screen/home_screen_view.dart';
+import 'package:aventeds/view/home_screen/homeview.dart';
 
 class RoleSelectionScreen extends StatefulWidget {
   const RoleSelectionScreen({super.key});

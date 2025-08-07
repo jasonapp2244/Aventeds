@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/utils/routes/responsive.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/utils/routes/responsive.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
 
 class CustomEventCard extends StatelessWidget {
   final String title;
@@ -30,7 +26,7 @@ class CustomEventCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 180,
+        width: 150,
         margin: const EdgeInsets.only(right: 6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -64,15 +60,16 @@ class CustomEventCard extends StatelessWidget {
               Positioned(
                 left: 12,
                 top: 12,
-                child: Expanded(
-                  child: Text(
-                    title,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.yellow,
-                    ),
+                right: 12,
+                child: Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.yellow,
                   ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
 
@@ -91,7 +88,7 @@ class CustomEventCard extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -104,26 +101,31 @@ class CustomEventCard extends StatelessWidget {
                           ),
                         ),
                         // Image stack
-                        SizedBox(
-                          height: 28,
-                          width: 60,
-                          child: Stack(
-                            children: List.generate(speakerImagePaths.length, (
-                              index,
-                            ) {
-                              return Positioned(
-                                left: index * 20,
-                                child: CircleAvatar(
-                                  radius: 14,
-                                  backgroundColor: Colors.white,
-                                  backgroundImage: AssetImage(
-                                    speakerImagePaths[index],
+                        speakerImagePaths.isNotEmpty
+                            ? SizedBox(
+                                height: 28,
+                                width: 60,
+                                child: Stack(
+                                  children: List.generate(
+                                    speakerImagePaths.length > 3
+                                        ? 3
+                                        : speakerImagePaths.length,
+                                    (index) {
+                                      return Positioned(
+                                        left: index * 16.0,
+                                        child: CircleAvatar(
+                                          radius: 14,
+                                          backgroundColor: Colors.white,
+                                          backgroundImage: AssetImage(
+                                            speakerImagePaths[index],
+                                          ),
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
-                              );
-                            }),
-                          ),
-                        ),
+                              )
+                            : const SizedBox(width: 60, height: 28),
                       ],
                     ),
                   ],

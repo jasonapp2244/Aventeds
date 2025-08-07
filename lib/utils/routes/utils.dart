@@ -2,7 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:provide/res/components/app_color.dart';
+import 'package:aventeds/res/components/app_color.dart';
 
 class Utils {
   static tosatMassage(String massage) {
@@ -45,6 +45,29 @@ class Utils {
         message: message,
         borderRadius: BorderRadius.circular(20),
         backgroundColor: AppColor.seconadryColor,
+        title: "Error",
+        titleColor: AppColor.textColor,
+        messageColor: AppColor.textColor,
+        positionOffset: 20,
+        flushbarPosition: FlushbarPosition.BOTTOM,
+        icon: Icon(Icons.error, size: 28, color: Colors.white),
+        duration: Duration(seconds: 3),
+      )..show(context),
+    );
+  }
+
+  static void flushBarSuccessMassage(String message, BuildContext context) {
+    showFlushbar(
+      context: context,
+      flushbar: Flushbar(
+        forwardAnimationCurve: Curves.decelerate,
+        reverseAnimationCurve: Curves.easeInOut,
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.all(15),
+        //backgroudColors
+        message: message,
+        borderRadius: BorderRadius.circular(20),
+        backgroundColor: AppColor.tertiaryColor,
         title: "Error",
         titleColor: AppColor.textColor,
         messageColor: AppColor.textColor,

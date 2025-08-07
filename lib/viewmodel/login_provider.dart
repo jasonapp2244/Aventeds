@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginProvider extends ChangeNotifier {
+class Loginaventedsr extends ChangeNotifier {
   final emailController = TextEditingController();
   final focusOne = FocusNode();
   final focusTwo = FocusNode();

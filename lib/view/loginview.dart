@@ -1,14 +1,14 @@
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/res/components/auth_button.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
+import 'package:aventeds/utils/routes/utils.dart';
+import 'package:aventeds/view/event_screen/home_screen_view.dart';
+import 'package:aventeds/view/sginupview.dart';
+import 'package:aventeds/viewmodel/auth_viewmodel.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/res/components/auth_button.dart';
-import 'package:provide/utils/routes/responsive.dart';
-import 'package:provide/utils/routes/routes_name.dart';
-import 'package:provide/utils/routes/utils.dart';
-import 'package:provide/view/role_selector.dart';
-import 'package:provide/viewmodel/auth_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 class Loginview extends StatefulWidget {
@@ -58,59 +58,61 @@ class _LoginviewState extends State<Loginview> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: Responsive.h(2)), // 2% of screen height
-                // SvgPicture.asset(
-                //   "assets/images/download-removebg-preview 1 (6).svg",
-                //   width: Responsive.w(25), // 50% of screen width
-                // ),
-                Image(image: AssetImage("assets/images/login.png")),
                 SizedBox(height: Responsive.h(2)),
                 Text(
-                  "Welcome Back!",
-                  style: GoogleFonts.rethinkSans(
-                    color: AppColor.textColor,
+                  "Welcome back!",
+                  style: GoogleFonts.poppins(
+                    color: AppColor.tertiaryColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: Responsive.sp(25), // Responsive font size
+                    fontSize: Responsive.sp(19), // Responsive font size
                   ),
                 ),
                 SizedBox(height: Responsive.h(1)),
                 Text(
                   "Log in to explore about our app",
-                  style: GoogleFonts.rethinkSans(
+                  style: GoogleFonts.poppins(
                     color: AppColor.textColor,
                     fontWeight: FontWeight.normal,
                     fontSize: Responsive.sp(10.5),
                   ),
                 ),
                 SizedBox(height: Responsive.h(3)),
+                Text(
+                  "Email",
+                  style: GoogleFonts.poppins(
+                    color: AppColor.textColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: Responsive.sp(12),
+                  ),
+                ),
                 TextFormField(
                   style: TextStyle(color: AppColor.textColor),
                   controller: emailController,
                   focusNode: emailFoucsNode,
-                  cursorColor: AppColor.seconadryColor,
-                  cursorErrorColor: AppColor.seconadryColor,
+                  cursorColor: AppColor.yellow,
+                  cursorErrorColor: AppColor.yellow,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(
-                        Responsive.w(12),
+                        Responsive.w(4),
                       ), // 6% of width
                       borderSide: BorderSide(color: AppColor.yellow),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(Responsive.w(12)),
+                      borderRadius: BorderRadius.circular(Responsive.w(4)),
                       borderSide: BorderSide(color: AppColor.yellow),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: AppColor.yellow),
-                      borderRadius: BorderRadius.circular(Responsive.w(12)),
+                      borderRadius: BorderRadius.circular(Responsive.w(4)),
                     ),
                     prefixIcon: Padding(
                       padding: EdgeInsets.all(Responsive.w(3)), // 2% of width
-                      child: SvgPicture.asset("assets/icons/mail-02.svg"),
+                      child: SvgPicture.asset("assets/icons/mail.svg"),
                     ),
                     filled: true,
-                    fillColor: AppColor.primaryColor.withValues(alpha: 0.015),
+                    fillColor: AppColor.fillColor,
                     hintText: "Email Address",
                     hintStyle: GoogleFonts.dmSans(
                       color: AppColor.textColor,
@@ -128,6 +130,14 @@ class _LoginviewState extends State<Loginview> {
                   },
                 ),
                 SizedBox(height: Responsive.h(3)),
+                Text(
+                  "Password",
+                  style: GoogleFonts.poppins(
+                    color: AppColor.textColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: Responsive.sp(12),
+                  ),
+                ),
                 ValueListenableBuilder(
                   valueListenable: _obsecurePassword,
                   builder: (context, value, child) {
@@ -135,16 +145,14 @@ class _LoginviewState extends State<Loginview> {
                       style: TextStyle(color: AppColor.textColor),
                       controller: passwordController,
                       focusNode: passwordFoucsNode,
-                      cursorColor: AppColor.seconadryColor,
-                      cursorErrorColor: AppColor.seconadryColor,
+                      cursorColor: AppColor.yellow,
+                      cursorErrorColor: AppColor.yellow,
                       obscureText: _obsecurePassword.value,
                       obscuringCharacter: "*",
                       decoration: InputDecoration(
                         focusColor: AppColor.textColor,
                         filled: true,
-                        fillColor: AppColor.primaryColor.withValues(
-                          alpha: 0.015,
-                        ),
+                        fillColor: AppColor.fillColor,
                         hintText: "Password",
                         hintStyle: GoogleFonts.dmSans(
                           color: AppColor.textColor,
@@ -152,22 +160,20 @@ class _LoginviewState extends State<Loginview> {
                           fontSize: Responsive.sp(12),
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(Responsive.w(12)),
+                          borderRadius: BorderRadius.circular(Responsive.w(4)),
                           borderSide: BorderSide(color: AppColor.yellow),
                         ),
                         errorBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(Responsive.w(12)),
+                          borderRadius: BorderRadius.circular(Responsive.w(4)),
                           borderSide: BorderSide(color: AppColor.yellow),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: AppColor.yellow),
-                          borderRadius: BorderRadius.circular(Responsive.w(12)),
+                          borderRadius: BorderRadius.circular(Responsive.w(4)),
                         ),
                         prefixIcon: Padding(
                           padding: EdgeInsets.all(Responsive.w(3)),
-                          child: SvgPicture.asset(
-                            "assets/icons/lock-password (3).svg",
-                          ),
+                          child: SvgPicture.asset("assets/icons/lock.svg"),
                         ),
                         suffixIcon: GestureDetector(
                           onTap: () {
@@ -179,7 +185,7 @@ class _LoginviewState extends State<Loginview> {
                                 : Icons.visibility,
                             color: _obsecurePassword.value
                                 ? AppColor.textColor
-                                : AppColor.seconadryColor,
+                                : AppColor.tertiaryColor,
                             size: Responsive.sp(20),
                           ),
                         ),
@@ -209,7 +215,87 @@ class _LoginviewState extends State<Loginview> {
                     ),
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text.rich(
+                      textAlign: TextAlign.center,
+                      TextSpan(
+                        text: "New here? ",
+                        style: TextStyle(
+                          color: AppColor.textColor,
+                          fontSize: Responsive.sp(12),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Create an account",
+                            style: TextStyle(
+                              color: AppColor.yellow,
+                              fontSize: Responsive.sp(10),
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => SginupView(),
+                                  ),
+                                );
+
+                                // Navigator.pushReplacementNamed(
+                                //   context,
+                                //   RoutesName.signup,
+                                // );
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
                 SizedBox(height: Responsive.h(2.5)),
+
+                Row(
+                  children: [
+                    Expanded(child: Divider(color: AppColor.textColor)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Responsive.w(3),
+                      ),
+                      child: Text(
+                        "OR",
+                        style: GoogleFonts.dmSans(
+                          color: AppColor.textColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: Responsive.sp(10),
+                        ),
+                      ),
+                    ),
+                    Expanded(child: Divider(color: AppColor.textColor)),
+                  ],
+                ),
+                SizedBox(height: Responsive.h(2)),
+                Column(
+                  spacing: 10,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildSocialButton(
+                      "assets/icons/google.svg",
+                      "Continue With Google",
+                    ),
+                    _buildSocialButton(
+                      "assets/icons/facebook.svg",
+                      "Continue With Facebook",
+                    ),
+                    _buildSocialButton(
+                      "assets/icons/apple.svg",
+                      "Continue With Apple",
+                    ),
+                  ],
+                ),
+                SizedBox(height: Responsive.h(2)),
                 AuthButton(
                   buttontext: "Login",
                   loading: false,
@@ -241,9 +327,7 @@ class _LoginviewState extends State<Loginview> {
                     } else {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => RoleSelectionScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => HomeScreenView()),
                       );
                       // Map<String, String> headr = {
                       //   "x-api-key": "reqres-free-v1",
@@ -257,100 +341,6 @@ class _LoginviewState extends State<Loginview> {
                   },
                 ),
                 SizedBox(height: Responsive.h(2)),
-                Row(
-                  children: [
-                    Expanded(child: Divider(color: AppColor.textColor)),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: Responsive.w(3),
-                      ),
-                      child: Text(
-                        "OR",
-                        style: GoogleFonts.dmSans(
-                          color: AppColor.textColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: Responsive.sp(10),
-                        ),
-                      ),
-                    ),
-                    Expanded(child: Divider(color: AppColor.textColor)),
-                  ],
-                ),
-                SizedBox(height: Responsive.h(2)),
-                Column(
-                  spacing: 5,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // SocialButton(
-                    //   iconPath: 'assets/icons/google.svg',
-                    //   ontap: () {},
-                    // ),
-                    // _buildSocialButton("assets/icons/google.svg"),
-                    // Container(
-                    //   height: Responsive.h(6), // 6% of screen height
-                    //   width: Responsive.w(25), // 20% of screen width
-                    //   decoration: BoxDecoration(
-                    //     borderRadius: BorderRadius.circular(Responsive.w(5.5)),
-                    //     color: AppColor.textColor.withValues(alpha: 0.08),
-                    //   ),
-                    //   child: Padding(
-                    //     padding: EdgeInsets.all(Responsive.w(3)),
-                    //     child: SvgPicture.asset("assets/icons/facebook.svg"),
-                    //   ),
-                    // ),
-                    _buildSocialButton(
-                      "assets/icons/google.svg",
-                      "Continue With Google",
-                    ),
-                    _buildSocialButton(
-                      "assets/icons/facebook.svg",
-                      "Continue With Facebook",
-                    ),
-                    _buildSocialButton(
-                      "assets/icons/apple.svg",
-                      "Continue With Apple",
-                    ),
-                  ],
-                ),
-                SizedBox(height: Responsive.h(2)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text.rich(
-                      textAlign: TextAlign.center,
-                      TextSpan(
-                        text: "New here? ",
-                        style: TextStyle(
-                          color: AppColor.textColor,
-                          fontSize: Responsive.sp(12),
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "Create an account",
-                            style: TextStyle(
-                              color: AppColor.seconadryColor,
-                              fontSize: Responsive.sp(12),
-                              fontWeight: FontWeight.bold,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.pushReplacementNamed(
-                                  context,
-                                  RoutesName.signup,
-                                );
-
-                                // Navigator.pushReplacementNamed(
-                                //   context,
-                                //   RoutesName.signup,
-                                // );
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -364,9 +354,9 @@ class _LoginviewState extends State<Loginview> {
       height: Responsive.h(6), // 6% of screen height
       width: double.infinity, // 20% of screen width
       decoration: BoxDecoration(
-        border: Border.all(width: 2, color: AppColor.yellow),
-        borderRadius: BorderRadius.circular(Responsive.w(5.5)),
-        color: AppColor.primaryColor,
+        border: Border.all(width: 2, color: AppColor.fillColor),
+        borderRadius: BorderRadius.circular(Responsive.w(3.5)),
+        color: AppColor.fillColor,
         // AppColor.textColor.withValues(alpha: 0.08),
       ),
       child: Center(
@@ -376,7 +366,12 @@ class _LoginviewState extends State<Loginview> {
             children: [
               SizedBox(width: Responsive.w(15)),
               // Row(children: [  SvgPicture.asset(iconPath),],),
-              SvgPicture.asset(iconPath), SizedBox(width: Responsive.w(3)),
+              Container(
+                width: 30,
+                height: 30,
+                child: SvgPicture.asset(iconPath),
+              ),
+              SizedBox(width: Responsive.w(3)),
               Text(text, style: GoogleFonts.dmSans(color: AppColor.textColor)),
             ],
           ),

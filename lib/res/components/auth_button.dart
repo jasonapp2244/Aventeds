@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:provide/res/components/app_color.dart';
+import 'package:aventeds/res/components/app_color.dart';
 
 class AuthButton extends StatelessWidget {
   final String? buttontext;
@@ -28,17 +27,16 @@ class AuthButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Center(
-            child:
-                loading
-                    ? CustomLoadingAnimation()
-                    : Text(
-                      buttontext.toString(),
-                      style: GoogleFonts.dmSans(
-                        color: AppColor.textColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+            child: loading
+                ? CustomLoadingAnimation()
+                : Text(
+                    buttontext.toString(),
+                    style: GoogleFonts.dmSans(
+                      color: AppColor.primaryColor,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16,
                     ),
+                  ),
           ),
         ),
       ),

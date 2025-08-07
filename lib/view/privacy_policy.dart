@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
+import 'package:aventeds/res/components/app_color.dart';
 
 class ShakingText extends StatefulWidget {
   const ShakingText({super.key});
@@ -113,7 +113,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               child: Container(
                 // height: MediaQuery.sizeOf(context).height * 0.7,
                 width: MediaQuery.sizeOf(context).width * 1,
-                decoration: BoxDecoration(color: AppColor.textColor),
+                decoration: BoxDecoration(color: AppColor.primaryColor),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,

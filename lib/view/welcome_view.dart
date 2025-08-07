@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/res/components/auth_button.dart';
-import 'package:provide/utils/routes/responsive.dart';
-import 'package:provide/view/loginview.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/res/components/auth_button.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
+import 'package:aventeds/view/get_started.dart';
+import 'package:aventeds/view/loginview.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -38,7 +39,7 @@ class WelcomeView extends StatelessWidget {
               onPress: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (_) => Loginview()),
+                  MaterialPageRoute(builder: (_) => GetStartedSecreen()),
                 );
               },
             ),

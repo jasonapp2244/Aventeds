@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import "package:http/http.dart" as http;
 import 'package:http/http.dart';
-import 'package:provide/data/app_exceptions.dart';
-import 'package:provide/data/network/baseapiservices.dart';
+import 'package:aventeds/data/app_exceptions.dart';
+import 'package:aventeds/data/network/baseapiservices.dart';
 
 class Networkapiservices extends Baseapiservices {
   @override
@@ -13,8 +13,9 @@ class Networkapiservices extends Baseapiservices {
   Future getGetApiResponse(String url) async {
     dynamic responseJson;
     try {
-      final response =
-          await http.get(Uri.parse(url)).timeout(Duration(seconds: 10));
+      final response = await http
+          .get(Uri.parse(url))
+          .timeout(Duration(seconds: 10));
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException("No Internet Connection");
@@ -23,14 +24,18 @@ class Networkapiservices extends Baseapiservices {
   }
 
   @override
-  Future getPostApiResponse(String url,dynamic data,Map<String,String> header) async {
+  Future getPostApiResponse(
+    String url,
+    dynamic data,
+    Map<String, String> header,
+  ) async {
     dynamic responseJson;
     try {
-    Response response =
-          await http.post(
-            Uri.parse(url),
-            headers: header,
-            body: data);
+      Response response = await http.post(
+        Uri.parse(url),
+        headers: header,
+        body: data,
+      );
 
       responseJson = returnResponse(response);
     } on SocketException {
@@ -54,7 +59,8 @@ class Networkapiservices extends Baseapiservices {
 
       default:
         throw FetchDataException(
-            "Error accoured while communicating with server withstatuscode${ response.statusCode}");
+          "Error accoured while communicating with server withstatuscode${response.statusCode}",
+        );
     }
   }
 }

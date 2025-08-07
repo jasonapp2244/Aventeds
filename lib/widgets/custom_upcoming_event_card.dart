@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provide/res/components/app_color.dart';
-import 'package:provide/utils/routes/responsive.dart';
-import 'package:provide/widgets/custom_stack_image.dart';
+import 'package:aventeds/res/components/app_color.dart';
+import 'package:aventeds/utils/routes/responsive.dart';
+import 'package:aventeds/widgets/custom_stack_image.dart';
 
 class CustomUpcomingEventCard extends StatelessWidget {
   final String title;
